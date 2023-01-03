@@ -5,6 +5,11 @@ $lname = isset($_POST['lname']) ? $_POST['lname'] : "Tariq Hasanat";
 $email = isset($_POST['email']) ? $_POST['email'] : "maazihadin@gmail.com";
 
 
+if (isset($_POST['info_submit'])) {
+   $sucess = "The form has been Submitted.";
+}
+
+
 ?>
 
 
@@ -26,16 +31,19 @@ $email = isset($_POST['email']) ? $_POST['email'] : "maazihadin@gmail.com";
 <body>
 
    <form action="index.php" method="POST">
-
       <input type="text" name="fname" id="" placeholder="First Name">
       <input type="text" name="lname" id="" placeholder="Last Name">
       <input type="email" name="email" id="" placeholder="Email Address">
-      <button type="sumbit">Submit</button>
-
-
+      <button type="sumbit" name="info_submit">Submit</button>
    </form>
-   <br>
 
+   <?php
+   if (isset($sucess)) {
+      echo "<p>" . $sucess .  "</p";
+   }
+   ?>
+
+   <br>
    First Name : <?php echo $fname; ?> <br>
    Last Name : <?php echo $lname; ?> <br>
    Email Address Name : <?php echo $email; ?> <br>
